@@ -20,16 +20,16 @@ def game():
         guess=int(input("Make a guess: "))
         if guess>chosen_number:
                 print("Too High")
-                print("Guess again.")
         elif guess<chosen_number:
                 print("Too Low")
-                print("Guess again.")
         else:
                 print(f"You got it! The answer was {chosen_number}.")
                 return None
         chances-=1
-    else:
-        print("You've run out of guesses, you lose.")
-        print(f"The number was {chosen_number}.")
-        return None
+        if chances>0:
+            print("Guess again.")
+
+        else:
+            print("You've run out of guesses, you lose.")
+            print(f"The number was {chosen_number}.")
 game()
